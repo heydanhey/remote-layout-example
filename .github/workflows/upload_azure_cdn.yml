@@ -14,18 +14,19 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - name: build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: build
         run: |
           yarn
           yarn build
       - name: upload
-        uses: actions/checkout@v2
         uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: '/'
+          source_dir: "bundles/layout/dist/"
           container_name: layout
           connection_string: ${{ secrets.AZURE_BLOB_CONNECTION_STRING }}
-          overwrite: 'true'
+          overwrite: "true"
