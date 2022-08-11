@@ -22,7 +22,7 @@ jobs:
       - name: build
         run: |
           yarn
-          yarn build
+          yarn workspace layout-bundle build
       - name: upload
         uses: bacongobbler/azure-blob-storage-upload@main
         with:
