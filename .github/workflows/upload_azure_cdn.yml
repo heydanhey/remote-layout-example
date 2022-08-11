@@ -28,5 +28,5 @@ jobs:
         with:
           source_dir: "bundles/layout/dist/"
           container_name: layout
-          connection_string: ${{ secrets.AZURE_BLOB_CONNECTION_STRING }}
+          connection_string: ${{secrets.AZURE_BLOB_CONNECTION_STRING}}
           overwrite: "true"
