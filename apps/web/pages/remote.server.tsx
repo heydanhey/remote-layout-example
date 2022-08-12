@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from 'next'
 import type { LayoutOptions } from 'ui'
 import { getLayoutOptions } from '../lib/getLayoutOptions'
-import { RemoteLayout } from '../components/RemoteLayout'
+import { RemoteLayout } from '../components/RemoteLayout.server'
 
 interface RemotePageProps {
   layoutOptions?: LayoutOptions

@@ -26,7 +26,6 @@ const withLayoutConfig = async (itaNextConfig) => {
     ...itaNextConfig,
     experimental: {
       ...itaNextConfig.experimental,
-      runtime: "nodejs",
       serverComponents: true,
     },
     serverRuntimeConfig: {
