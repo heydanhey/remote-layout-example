@@ -26,7 +26,7 @@ const Layout = ({ children, layoutOptions }) => {
   const Header = layoutOptions.header.type === "search" ? _header_SearchHeader__WEBPACK_IMPORTED_MODULE_1__.SearchHeader : _header_LiteHeader__WEBPACK_IMPORTED_MODULE_2__.LiteHeader;
   const Footer = () => /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement("footer", {
     id: "layout-footer"
-  }, "Footer");
+  }, "Footer123");
   return /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Header, {
     layoutOptions
   }), children, /* @__PURE__ */ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Footer, null));

@@ -4,6 +4,7 @@ const { writeFile } = require("fs").promises;
 async function download(url, path) {
   const response = await fetch(url);
   const buffer = await response.buffer();
+  console.log("**************", buffer);
   await writeFile(path, buffer);
 }
 
