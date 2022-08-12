@@ -9,6 +9,8 @@ interface RemoteLayoutProps {
 export const RemoteLayout = ({ layoutOptions, children }: RemoteLayoutProps) => {
   const config = getConfig() as { serverRuntimeConfig: { getUI: any } }
 
+  console.log(config);
+
   if (typeof config?.serverRuntimeConfig?.getUI !== 'function') {
     return (
       <>
