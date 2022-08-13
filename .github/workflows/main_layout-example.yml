@@ -27,7 +27,7 @@ jobs:
 
       - uses: azure/appservice-settings@v1
         with:
-          app-name: "my-app"
+          app-name: "layout-example"
           app-settings-json: "${{ secrets.APP_SETTINGS }}"
 
       - name: npm install, build, and test
