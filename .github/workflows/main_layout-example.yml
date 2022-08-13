@@ -33,7 +33,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           yarn
-          "${{ secrets.CDN_DIR }}" yarn build
+          "CDN_DIR=${{ secrets.CDN_DIR }} yarn build"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
