@@ -9,6 +9,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  CDN_DIR: "${{ secrets.CDN_DIR }}"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,7 +36,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           yarn
-          "CDN_DIR=${{ secrets.CDN_DIR }} yarn build"
+          yarn build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
