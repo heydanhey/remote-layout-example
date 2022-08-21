@@ -2,9 +2,13 @@ const withTM = require("next-transpile-modules")(["ui"]);
 const { writeFile } = require("fs").promises;
 
 async function download(url, path) {
-  const response = await fetch(url);
-  const buffer = await response.buffer();
-  await writeFile(path, buffer);
+  try {
+    const response = await fetch(url);
+    const buffer = await response.buffer();
+    await writeFile(path, buffer);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const withLayoutConfig = async (itaNextConfig) => {

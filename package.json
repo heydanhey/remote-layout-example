@@ -11,7 +11,9 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "heroku-prebuild": "cd apps/web && yarn && yarn build",
+    "start": "cd apps/web && yarn start"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
