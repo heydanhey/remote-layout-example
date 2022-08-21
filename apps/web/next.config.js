@@ -4,8 +4,10 @@ const { writeFile } = require("fs").promises;
 async function download(url, path) {
   try {
     const response = await fetch(url);
-    const buffer = await response.buffer();
-    await writeFile(path, buffer);
+    if (response.ok) {
+      const buffer = await response.buffer();
+      await writeFile(path, buffer);
+    }
   } catch (err) {
     console.log(err);
   }
