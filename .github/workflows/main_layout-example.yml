@@ -7,61 +7,14 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
-env:
-  CDN_DIR: "${{ secrets.CDN_DIR }}"
-
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v1
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          node-version: "14.x"
-
-      - uses: azure/login@v1
-        with:
-          creds: "${{ secrets.AZURE_CREDENTIALS }}"
-
-      - uses: azure/appservice-settings@v1
-        with:
-          app-name: "layout-example"
-          app-settings-json: "${{ secrets.APP_SETTINGS }}"
-
-      - name: npm install, build, and test
-        run: |
-          yarn
-          yarn build
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: node-app
-          path: ./apps/web/
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: "Production"
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: node-app
-
-      - name: "Deploy to Azure Web App"
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: "layout-example"
-          slot-name: "Production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_79030A67B75847E9826922DE8E77447A }}
-          package: .
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}

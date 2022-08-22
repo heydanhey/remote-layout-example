@@ -16,7 +16,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, layoutOptions }) => {
 
   const Header = layoutOptions.header.type === 'search' ? SearchHeader : LiteHeader;
 
-  const Footer = () => <footer id="layout-footer">Footer123</footer>
+  const Footer = () => <footer id="layout-footer">Footer456</footer>
 
   return (
     <>
