@@ -1,4 +1,5 @@
 const withTM = require("next-transpile-modules")(["ui"]);
+const fetch = require("node-fetch");
 const { writeFile } = require("fs").promises;
 
 async function download(url, path) {
