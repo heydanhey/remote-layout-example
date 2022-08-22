@@ -5,3 +5,5 @@
 ## Run
 
 `yarn dev`
+
+![graphic](./graphic.png)
