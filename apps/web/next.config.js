@@ -15,7 +15,7 @@ async function download(url, path) {
 }
 
 const withLayoutConfig = async (itaNextConfig) => {
-  const isProd = process.env.NODE_ENV === "production";
+  const isProd = process.env.NODE_ENV == "production";
 
   const bundleName = "layout.js";
   let bundlePath;
