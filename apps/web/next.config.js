@@ -2,6 +2,8 @@ const withTM = require("next-transpile-modules")(["ui"]);
 const fetch = require("node-fetch");
 const { writeFile } = require("fs").promises;
 
+const FIVE_MINUTES = 1000 * 60 * 5;
+
 async function download(url, path) {
   try {
     const response = await fetch(url);
@@ -51,7 +53,7 @@ const withLayoutConfig = async (itaNextConfig) => {
     } catch (err) {
       console.log(err);
     }
-  }, 1000);
+  }, FIVE_MINUTES);
 
   return nextConfig;
 };
