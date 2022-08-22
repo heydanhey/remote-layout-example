@@ -41,13 +41,17 @@ const withLayoutConfig = async (itaNextConfig) => {
     },
   };
 
-  setInterval(async () => {
-    if (isProd) {
-      await download(`${process.env.CDN_DIR}/${bundleName}`, bundleName);
-    }
-    delete require.cache[require.resolve(bundlePath)];
-    UI = require(bundlePath);
-  }, 1000);
+  // setInterval(async () => {
+  //   try {
+  //     if (isProd) {
+  //       await download(`${process.env.CDN_DIR}/${bundleName}`, bundleName);
+  //     }
+  //     delete require.cache[require.resolve(bundlePath)];
+  //     UI = require(bundlePath);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, 1000);
 
   return nextConfig;
 };
